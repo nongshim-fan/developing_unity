@@ -8,7 +8,8 @@ public class RPGGameManager : MonoBehaviour
 
 
     public static RPGGameManager sharedInstance = null;
-    
+    public RPGCameraManager cameraManager;
+
 
     void Awake()
     {
@@ -26,8 +27,7 @@ public class RPGGameManager : MonoBehaviour
 
     void Start()
     {
-        // Consolidate all the logic to setup a scene inside a single method. 
-        // This makes it easier to call again in the future, in places other than the Start() method.
+        
         SetupScene();
     }
 
@@ -41,7 +41,7 @@ public class RPGGameManager : MonoBehaviour
         if (playerSpawnPoint != null)
         {
             GameObject player = playerSpawnPoint.SpawnObject();
-            /*cameraManager.virtualCamera.Follow = player.transform;*/
+            cameraManager.virtualCamera.Follow = player.transform;
         }
     } 
 
